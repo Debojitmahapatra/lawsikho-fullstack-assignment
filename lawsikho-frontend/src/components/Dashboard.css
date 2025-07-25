@@ -1,0 +1,115 @@
+.dashboard {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+.dashboard h2 {
+  margin-bottom: 10px;
+}
+
+.info-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-info h2 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.logo-logout {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-logo {
+  width: 45px;
+  height: 45px;
+  background-color: #e3e3e3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-user {
+  font-size: 24px;
+  color: #333;
+}
+
+.btn{
+  padding: 8px 14px;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -ms-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+}
+.home-btn{
+    background-color: blue;
+    &:hover{
+        background-color: #4779c4;
+    }
+}
+.btn:hover {
+  background-color: #c0392b;
+}
+
+.all-information {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.active-user-list,
+.total-user-list,
+.most-tags-list {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.heading h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  color: #2c3e50;
+}
+
+.lists-dashboard {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Example note style */
+.note {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+}
+
+.note h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}

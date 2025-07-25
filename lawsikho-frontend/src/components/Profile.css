@@ -1,0 +1,63 @@
+.user-Profile {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.user-logo {
+  width: 80px;
+  height: 80px;
+  background-color: #e6e6e6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-user {
+  font-size: 40px;
+  color: #2c3e50;
+}
+
+.user-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.user-info h2 {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.user-info h2 b {
+  color: #555;
+}
+
+.logOut {
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.logOut .btn.logout {
+  padding: 8px 16px;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logOut .btn.logout:hover {
+  background-color: #c0392b;
+}
