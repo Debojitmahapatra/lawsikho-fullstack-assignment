@@ -4,7 +4,7 @@ import { FaUserLarge } from "react-icons/fa6";
 import './Home.css'
 import { useState, useEffect } from 'react';
 import { isTokenValid } from '../auth/Auth.jsx';
-import LogoutButton from './LogoutButton.jsx';
+
 
 
 
@@ -39,13 +39,13 @@ export const Home = () => {
                 <div className="user-information intomain">
                     <div className="user-logo"><FaUserLarge className="logo" /></div>
                     <div><h1>{change ? userName : <button className='log-btn' onClick={handleLogin}>login</button>}</h1></div>
-                    <div className="logOut"><LogoutButton/></div>
+                   
                 </div>
                 <div className="home-menu intomain">
                     <ul className='menu-ul'>
                         <Link to="/notes"> <li>Notes</li></Link>
                         <Link to="/user"><li>User</li></Link>
-                        <Link to="/roles"><li>Role: {role}</li></Link>
+                        <Link to="/"><li>Role: {role}</li></Link>
                         <Link to="/dashboard"><li>Dashboard</li></Link>
 
                     </ul>
