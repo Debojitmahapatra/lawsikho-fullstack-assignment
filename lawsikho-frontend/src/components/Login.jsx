@@ -13,7 +13,9 @@ export const Login=()=>{
         if(data){
            let isValid= isTokenValid(data)
            if(isValid) navigate('/')
+            else  localStorage.clear();
         }
+         
     });
   const handleSubmit = async (e) => {
     console.log(email, password);
@@ -51,8 +53,11 @@ export const Login=()=>{
        <input placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       <button type="submit">Login</button>
+      
 
       <button onClick={handleSignup}>signup</button>
+      <br />
+      <button className='btn home-btn' onClick={() => navigate('/')}>Home</button>
     </form>
   );
 }

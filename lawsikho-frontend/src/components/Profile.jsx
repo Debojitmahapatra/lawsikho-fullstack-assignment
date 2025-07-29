@@ -15,12 +15,17 @@ export const Profile=()=>{
              const data=JSON.parse(localStorage.getItem('data'))
              if (token) {
                  let isValid = isTokenValid(token)
-                 if (!isValid) navigate('/')
+                 if (!isValid){ 
+                localStorage.clear();
+                    navigate('/')}
                  setName(woner)
                  setEmail(data.email)
                  setPhone(data.phone)
                 
-             }
+             }else{
+            alert('login to go user page')
+             navigate('/')
+        }
              
      
          }, [name,email,phone]);

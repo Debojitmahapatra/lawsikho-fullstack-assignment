@@ -96,7 +96,6 @@ export const UpdateNode = () => {
                 value={tagInput}
                 onChange={(e) => setTagInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="p-2 border border-gray-300 rounded"
             />
 
 

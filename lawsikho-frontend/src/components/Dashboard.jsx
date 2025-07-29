@@ -4,6 +4,8 @@ import { isTokenValid } from '../auth/Auth';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css'
 import LogoutButton from './LogoutButton';
+
+
 export const Dashboard=()=> {
    
    const [notes, setNotes] = useState([])
@@ -18,12 +20,18 @@ let navigate = useNavigate()
         const data=JSON.parse(localStorage.getItem('data'))
         if (token) {
             let isValid = isTokenValid(token)
-            if (!isValid) navigate('/')
+            if (!isValid) {
+              navigate('/')
+             localStorage.clear();
+            }
             setName(woner)
             setEmail(data.email)
             getUsers()
             getActiveUser()
             getMostUseableTags()
+        } else{
+            alert('login to go to dashboard')
+             navigate('/')
         }
         
 

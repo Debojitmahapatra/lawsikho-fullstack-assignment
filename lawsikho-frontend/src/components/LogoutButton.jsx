@@ -9,8 +9,8 @@ const LogoutButton = () => {
     //  clear all localStorage
      localStorage.clear();
 
-    // Navigate to login or home page
-    navigate('/login');
+    // Navigate to home page
+    navigate('/');
   };
 
   return (

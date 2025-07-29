@@ -17,16 +17,17 @@ export const Home = () => {
     useEffect(() => {
         const token = JSON.parse(localStorage.getItem('token'))
         const woner = JSON.parse(localStorage.getItem('woner'))
-        const getRole=JSON.parse(localStorage.getItem('data')).role
+        const getRole=JSON.parse(localStorage.getItem('data'))
         if (token && woner) {
             let isValid = isTokenValid(token)
             if (isValid) {
                 setChange(true)
                 setUserName(woner)
-                setRole(getRole)
+                setRole(JSON.parse(localStorage.getItem('data')).role)
             }
+             else  localStorage.clear();
         }
-    }, [change, userName,role]);
+    }, [change, userName, role]);
 
     const handleLogin = () => {
         navigate('/login')

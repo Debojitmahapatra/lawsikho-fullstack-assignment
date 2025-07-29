@@ -14,6 +14,7 @@ export const Register=()=>{
         if(data){
            let isValid= isTokenValid(data)
            if(isValid) navigate('/')
+           else  localStorage.clear();
         }
     });
   const handleSubmit = async (e) => {

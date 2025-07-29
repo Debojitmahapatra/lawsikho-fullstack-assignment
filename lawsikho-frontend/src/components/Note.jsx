@@ -19,14 +19,21 @@ export const Note = () => {
     const [tagInput, setTagInput] = useState('');
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('token'))
-        const id = JSON.parse(localStorage.getItem('data'))._id
+       
         if (data) {
             let isValid = isTokenValid(data)
-            if (!isValid) navigate('/')
+            if (!isValid){
+                 navigate('/')
+                 localStorage.clear();
+                }
 
-            setUserId(id)
+            setUserId(JSON.parse(localStorage.getItem('data'))._id)
             getNode()
             getShareNote()
+        }
+        else{
+            alert('login to get notes')
+             navigate('/')
         }
 
     }, [userId, tags]);
@@ -83,7 +90,7 @@ export const Note = () => {
                 Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`
             },
 
-            //'Authorization', 'Bearer Token'
+  
             body: JSON.stringify({ title, content, tags: updatedTags })
         });
         result = await result.json()
@@ -169,6 +176,7 @@ export const Note = () => {
             if (result) {
                 setNotes(result);
             }
+           
         } else {
             getNode()
         }
@@ -180,7 +188,7 @@ export const Note = () => {
                 <input className="searchbox" type="text" placeholder="Search note by title content or tags" onChange={searchHandle} />
             </div>
 
-            <div className="note-list"> {notes ? notes.map(note => (
+            <div className="note-list"> {notes && notes.length > 0 ? notes.map(note => (
                 <div className="note" key={note._id}>
                     <h3><b>Title:</b>  {note.title}</h3>
                     <p><b>content:</b> {note.content}</p>
@@ -210,7 +218,6 @@ export const Note = () => {
                     value={tagInput}
                     onChange={(e) => setTagInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="p-2 border border-gray-300 rounded"
                 />
 
                 <button onClick={createNote}>Create Note</button>
