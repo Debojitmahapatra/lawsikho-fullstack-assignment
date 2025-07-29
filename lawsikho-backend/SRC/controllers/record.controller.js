@@ -6,19 +6,19 @@ export const mostActiveUser = async (req, res) => {
     try {
         // let record = await RecordModel.find()
         const record = await RecordModel.aggregate([
-            { $unwind: "$loginUser" },
-            { $sort: { "loginUser.userCount": -1 } },
+            { $unwind: "$loginUser" },    // break each element to its own document
+            { $sort: { "loginUser.userCount": -1 } },   // descending order
             { $limit: 5 },
             {
-                $lookup: {
+                $lookup: {                                      // perform join operation
                     from: "users",
                     localField: "loginUser.user",
                     foreignField: "_id",
-                    as: "userInfo"
+                    as: "userInfo"                               // making a array of user information
                 }
             },
             {
-                $unwind: "$userInfo"
+                $unwind: "$userInfo"                         // brake again to get single user info
             },
             {
                 $project: {

@@ -101,7 +101,9 @@ export const loginUser = async (req, res) => {
 
 
         const encryptedPassword = await bcrypt.compare(password, user.password);
+        if (!encryptedPassword) { return res.status(400).send({ status: false, message: "Please enter your password correctly" }); }
 
+        
         // Login successful – handle Record model logic
         let record = await RecordModel.findOne(); // Assuming there's one shared record document
 
@@ -126,7 +128,7 @@ export const loginUser = async (req, res) => {
         }
 
 
-        if (!encryptedPassword) { return res.status(400).send({ status: false, message: "Please enter your password correctly" }); }
+
 
         let token = jwt.sign({ userID: user._id.toString(), role: user.role }, JwtSECRET, { expiresIn: '1d' });
         res.setHeader("BearerToken", token);
